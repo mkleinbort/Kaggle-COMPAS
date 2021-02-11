@@ -61,13 +61,13 @@ The goal is to train a model on the data in `train/` and use it to predict for e
 
 You can load the training data `X_train`, `y` using:
 
-`X_train = pd.read_csv('')`
+`X_train = pd.read_csv('https://raw.githubusercontent.com/mkleinbort/Kaggle-COMPAS/main/train/X_train.csv')`
 
-`y_train = pd.read_csv('')`
+`y_train = pd.read_csv('https://raw.githubusercontent.com/mkleinbort/Kaggle-COMPAS/main/train/y_train.csv', squeeze=True)`
 
 similarly, you can load `X_test` with 
 
-`X_test = pd.read_csv('')`
+`X_test = pd.read_csv('https://raw.githubusercontent.com/mkleinbort/Kaggle-COMPAS/main/test/X_test.csv')`
 
 It is against the competition rules to use `y_test` in any way.
 
