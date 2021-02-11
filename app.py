@@ -59,7 +59,7 @@ The goal is to train a model on the data in `train/` and use it to predict for e
 
 ### The Data
 
-You can load the training data `X_train`, `y` using:
+You can load the training data `X_train`, `y_train` using:
 
 `X_train = pd.read_csv('https://raw.githubusercontent.com/mkleinbort/Kaggle-COMPAS/main/train/X_train.csv')`
 
@@ -75,7 +75,7 @@ It is against the competition rules to use `y_test` in any way.
 
 The competition is scored on two equaly important axis:
 - **Accuracy** (defined as the roc-auc score with multi_class="ovo")
-- **Fairness** (defined as the variance in the roc-auc score across subsets of the test dataset)
+- **Fairness** (defined as the $\sqrt{\sigma}$ in the roc-auc score across subsets of the test dataset)
 ''')
 
 st.markdown('### Making a submission')
