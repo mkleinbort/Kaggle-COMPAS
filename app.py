@@ -42,8 +42,8 @@ sample_submission = pd.read_csv('sample_submission.csv')
 st.sidebar.title('Info')
 st.sidebar.write('Data sourced from https://github.com/propublica/compas-analysis')
 st.sidebar.write('Competition idea inspired by https://www.kaggle.com/danofer/compass')
-st.sidebar.write('This page is managed by mycchaka.kleinbort@capgemini.com')
 st.sidebar.write('Sourcecode at https://github.com/mkleinbort/Kaggle-COMPAS')
+st.sidebar.write('This page is managed by mycchaka.kleinbort@capgemini.com')
 
 st.title('Kaggle COMPAS Competition')
 
