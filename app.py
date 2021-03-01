@@ -11,7 +11,7 @@ def get_score(y_true:pd.Series, y_pred:pd.DataFrame, groups:pd.Series)->Dict[str
     result['accuracy'] = roc_auc_score(y_true, 
                                        y_pred, 
                                        multi_class='ovo', 
-                                       labels=['No','Non-Violent','Violent'])
+                                       labels=['No-Recidivism','Non-Violent','Violent'])
     
     scores = {}
     for g in groups.unique():
@@ -21,7 +21,7 @@ def get_score(y_true:pd.Series, y_pred:pd.DataFrame, groups:pd.Series)->Dict[str
         s = roc_auc_score(y_true_g, 
                           y_pred_g, 
                           multi_class='ovo', 
-                          labels=['No','Non-Violent','Violent'])
+                          labels=['No-Recidivism','Non-Violent','Violent'])
         scores[g]=s
         
     # I add the np.sqrt to make stretch the space beteween 0.9 and 1.0
