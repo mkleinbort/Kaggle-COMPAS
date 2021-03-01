@@ -53,7 +53,7 @@ if st.checkbox('Info'):
 The goal of this competition is to accurately but fairly predict the recidivism of criminal defendants.
 
 More specificaly, the data contains the attributes of 4,743 criminal defendants, and whether in the two years since their release they:
-- Remained lawful (`No` recidivism)
+- Remained lawful (`No-Recidivism`)
 - Committed a `Non-Violent` offence
 - Committed a `Violent` offence
 
