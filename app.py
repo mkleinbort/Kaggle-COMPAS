@@ -42,6 +42,8 @@ sample_submission = pd.read_csv('sample_submission.csv')
 st.sidebar.title('Info')
 st.sidebar.write('Data sourced from https://github.com/propublica/compas-analysis')
 st.sidebar.write('Competition idea inspired by https://www.kaggle.com/danofer/compass')
+st.sidebar.write('This page is managed by mycchaka.kleinbort@capgemini.com')
+st.sidebar.write('Sourcecode at https://github.com/mkleinbort/Kaggle-COMPAS')
 
 st.title('Kaggle COMPAS Competition')
 
@@ -50,10 +52,10 @@ if st.checkbox('Info'):
 
 The goal of this competition is to accurately but fairly predict the recidivism of criminal defendants.
 
-More specificaly, the data contains the attributes of 4,743 criminal defendents, and whether in the two years since their release they:
-- Remained lawful (`No`)
-- Commited a `Non-Violent` offence
-- Commited a `Violent` offence
+More specificaly, the data contains the attributes of 4,743 criminal defendants, and whether in the two years since their release they:
+- Remained lawful (`No` recidivism)
+- Committed a `Non-Violent` offence
+- Committed a `Violent` offence
 
 The goal is to train a model on the data in `train/` and use it to predict for each individual in `test/X_test.csv` their probability for each outcome.
 
@@ -73,9 +75,20 @@ It is against the competition rules to use `y_test` in any way.
 
 ### Scoring
 
-The competition is scored on two equaly important axis:
+The competition is scored on two equally important axis:
 - **Accuracy** (defined as the roc-auc score with multi_class="ovo")
-- **Fairness** (defined as the $\sqrt{\sigma}$ in the roc-auc score across subsets of the test dataset)
+- **Fairness** (defined as the $1-\sqrt{\sigma}$ in the roc-auc score across subsets of the test dataset)
+
+**To elaborate on the fairness score:**
+
+Suppose your model has an AUC of .98 overall, but
+- .95 when looking at female defendents
+- .99 when looking at male defendents
+- .93 when looking at defendents aged 65+
+- etc.
+
+Then the standard deviation of these scores is $\sigma$, and the _fairness_ score is $1-\sqrt{\sigma}$
+
 ''')
 
 st.markdown('### Making a submission')
@@ -86,7 +99,7 @@ if st.checkbox('Show example'):
     st.dataframe(sample_submission)
 
 st.markdown('''Note:
-- Each row should correspont to each sample in `test/X_test.csv`.
+- Each row should correspond to each sample in `test/X_test.csv`.
 - The values represent the predicted probability of each class.
 ''')
 
