@@ -79,12 +79,12 @@ The competition is scored on two equally important axis:
 - **Accuracy** (defined as the roc-auc score with multi_class="ovo")
 - **Fairness** (defined as the $1-\sqrt{\sigma}$ in the roc-auc score across subsets of the test dataset)
 
-**To elaborate on the fairness score:**
+_To elaborate on the fairness score:_
 
 Suppose your model has an AUC of .98 overall, but
-- .95 when looking at female defendents
-- .99 when looking at male defendents
-- .93 when looking at defendents aged 65+
+- .95 when looking at female defendants
+- .99 when looking at male defendants
+- .93 when looking at defendants aged 65+
 - etc.
 
 Then the standard deviation of these scores is $\sigma$, and the _fairness_ score is $1-\sqrt{\sigma}$
